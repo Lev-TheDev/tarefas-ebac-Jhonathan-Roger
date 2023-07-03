@@ -15,7 +15,7 @@ public class Tarefa {
         System.out.println("===========================");*/
 
         /**
-         * Procedimento de Boxing (auto-boxing)
+         * Procedimento Boxing (auto-boxing)
          */
         Integer numeroInscricaoI = 944950;
         System.out.println(numeroInscricaoI);
