@@ -7,7 +7,7 @@ public class ControleDeFluxo {
     public  static  void  main(String [] args) {
 
         System.out.println("==============================================");
-        System.out.println("\t Programa de Calculo de Notas - Lev_TheDev");
+        System.out.println("\t Programa Cálculo de Notas - Lev_TheDev");
         System.out.println("==============================================");
         String alunoSituacao = getSituacao();
         System.out.println(alunoSituacao);
