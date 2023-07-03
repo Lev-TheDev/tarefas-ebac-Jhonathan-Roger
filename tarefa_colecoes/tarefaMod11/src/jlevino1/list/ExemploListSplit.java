@@ -12,7 +12,9 @@ public class ExemploListSplit {
         listaSplit();
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("===============================================================================")
         System.out.println("Digite nome-sexo e separe o próximo nome-sexo por vírgula, sem espaços: ");
+        System.out.println("===============================================================================")
         String listagemT = scanner.nextLine();
         //nextLine() aceita espaços, next() não
 
