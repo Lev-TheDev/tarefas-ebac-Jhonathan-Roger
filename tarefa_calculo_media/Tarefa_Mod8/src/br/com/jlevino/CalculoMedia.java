@@ -9,9 +9,9 @@ public class CalculoMedia {
     }
 
     private static void textoInicial() {
-        System.out.println("=========================================");
+        System.out.println("=======================================");
         System.out.println("\t PROGRAMA: CALCULADORA DE MÉDIAS");
-        System.out.println("=========================================");
+        System.out.println("=======================================");
         System.out.println("Olá, professor!");
         System.out.println("Vamos calcular a média das 4 notas?");
         System.out.println("Aguarde um minuto...");
