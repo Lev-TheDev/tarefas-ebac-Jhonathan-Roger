@@ -1,10 +1,10 @@
+package cadastro;
+
 import javax.swing.*;
 
-import dao.ClienteSetDAO;
-import domain.Cliente;
-import dao.IClienteDAO;
-import dao.ClienteMapDAO;
-import domain.Persistencia;
+import cadastro.dao.ClienteMapDAO;
+import cadastro.domain.Cliente;
+import cadastro.dao.IClienteDAO;
 
 
 public class App {
@@ -13,7 +13,7 @@ public class App {
     private static IClienteDAO iClienteDAO;
 
     public static void main(String args []) {
-        iClienteDAO = new ClienteSetDAO();
+        iClienteDAO = new ClienteMapDAO();
 
         String opcao = JOptionPane.showInputDialog(null,
                 "Seja bem vindo(a)!" + "\n\nDigite 1 para CADASTRAR, 2 para CONSULTAR, 3 para EXCLUIR, 4 para ALTERAR ou 5 para SAIR:",
@@ -72,8 +72,7 @@ public class App {
     }
 
     private static void excluir(String dados) {
-        String elementoCPF = dados;
-        if (!(elementoCPF.length() != 11) && !(elementoCPF.matches("\\d+"))) {
+        if ((dados.length() != 11) || !(dados.matches("\\d+"))) {
             JOptionPane.showMessageDialog(null, "Procedimento não realizado!" + "\n\nExclusão não realizada devido ao campo CPF NÃO ter sido preenchido com todos os dígitos corretamente!", "EXCLUSÃO DE CLIENTE - ERRO 409",JOptionPane.INFORMATION_MESSAGE);
         } else {
             iClienteDAO.excluir(Long.parseLong(dados));
@@ -83,8 +82,7 @@ public class App {
 
     private static void consultar(String dados) {
         // validar se foi passado somente digitos do cpf.
-        String elementoCPF = dados;
-        if ((elementoCPF.length() == 11) && (elementoCPF.matches("\\d+"))) {
+        if ((dados.length() == 11) && (dados.matches("\\d+"))) {
             Cliente cliente = iClienteDAO.consultar(Long.parseLong(dados));
             if (cliente != null) {
                 JOptionPane.showMessageDialog(null, "Procedimento finalizado!" + "\n\nCliente encontrado(a):  " + cliente.toString(), "CONSULTA DE CLIENTE", JOptionPane.INFORMATION_MESSAGE);

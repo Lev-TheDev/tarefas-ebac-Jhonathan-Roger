@@ -1,10 +1,10 @@
-package dao.generic;
+package cadastro.dao.generic;
 
-import domain.Persistencia;
+import cadastro.domain.Persistente;
 
 import java.util.Collection;
 
-public interface IGenericDAO <T extends Persistencia>{
+public interface IGenericDAO <T extends Persistente>{
 
     public Boolean cadastrar(T entity);
 

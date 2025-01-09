@@ -1,11 +1,11 @@
-package domain;
+package cadastro.domain;
 
 import java.util.Objects;
 
 /**
  * @author jhonathan roger
  */
-public class Cliente implements Persistencia{
+public class Cliente implements Persistente {
     private String nome;
     private Long cpf;
     private Long tel;

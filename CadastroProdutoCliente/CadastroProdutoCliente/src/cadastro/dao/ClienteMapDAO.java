@@ -1,7 +1,8 @@
-package dao;
+package cadastro.dao;
 
-import dao.generic.GenericDAO;
-import domain.Cliente;
+import cadastro.SingletonMap;
+import cadastro.dao.generic.GenericDAO;
+import cadastro.domain.Cliente;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,38 +10,23 @@ import java.util.Map;
 
 public class ClienteMapDAO extends GenericDAO<Cliente> implements IClienteDAO {
 
+    public ClienteMapDAO() {
+        super();
+        Map<Long, Cliente> mapaInterno =
+                (Map<Long, Cliente>) SingletonMap.getInstance().getMap().get(getTipoClasse());
+        if (mapaInterno == null) {
+            mapaInterno = new HashMap<>();
+            SingletonMap.getInstance().getMap().put(getTipoClasse(), mapaInterno);
+        }
+    }
+
     @Override
-    public Class<Cliente> getClassType() {
+    public Class<Cliente> getTipoClasse() {
         return Cliente.class;
     }
 
     @Override
-    public Boolean cadastrar(Cliente entity) {
-        return null;
-    }
-
-    @Override
-    public void excluir(Long cpf) {
-
-    }
-
-    @Override
-    public void alterar(Cliente entity) {
-
-    }
-
-    @Override
-    public Cliente consultar(Long valor) {
-        return null;
-    }
-
-    @Override
-    public Collection<Cliente> buscarTodos() {
-        return null;
-    }
-
-    @Override
-    public void atualizarDados(Cliente cliente, Cliente entityCadastrado) {
+    public void atualiarDados(Cliente cliente, Cliente entityCadastrado) {
         entityCadastrado.setNome(cliente.getNome());
         entityCadastrado.setTel(cliente.getTel());
         entityCadastrado.setNumero(cliente.getNumero());
@@ -49,14 +35,6 @@ public class ClienteMapDAO extends GenericDAO<Cliente> implements IClienteDAO {
         entityCadastrado.setEstado(cliente.getEstado());
     }
 
-    public ClienteMapDAO() {
-        super();
-        Map<Long, Cliente> internMap = this.map.get(getClassType());
-        if (internMap == null) {
-            internMap = new HashMap<>();
-            this.map.put(getClassType(), internMap);
-        }
-    }
 }
 
     /*private Map<Long, Cliente> map;

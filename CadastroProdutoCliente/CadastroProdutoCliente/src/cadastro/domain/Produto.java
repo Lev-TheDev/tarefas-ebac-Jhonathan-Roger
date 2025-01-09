@@ -1,9 +1,9 @@
-package domain;
+package cadastro.domain;
 
 /**
  * @author jhonathan roger
  */
-public class Produto implements Persistencia{
+public class Produto implements Persistente {
     private Long codigo;
     private String nome;
 
@@ -21,5 +21,13 @@ public class Produto implements Persistencia{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }
