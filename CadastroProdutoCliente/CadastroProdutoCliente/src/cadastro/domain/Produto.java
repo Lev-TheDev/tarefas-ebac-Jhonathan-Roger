@@ -1,9 +1,12 @@
 package cadastro.domain;
 
+import cadastro.annotation.TipoChave;
+
 /**
  * @author jhonathan roger
  */
 public class Produto implements Persistente {
+    @TipoChave("getCodigo")
     private Long codigo;
     private String nome;
 

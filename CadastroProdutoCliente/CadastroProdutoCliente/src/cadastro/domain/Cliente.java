@@ -1,5 +1,7 @@
 package cadastro.domain;
 
+import cadastro.annotation.TipoChave;
+
 import java.util.Objects;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Objects;
  */
 public class Cliente implements Persistente {
     private String nome;
+    @TipoChave("getCpf")
     private Long cpf;
     private Long tel;
     private String end;
@@ -107,9 +110,9 @@ public class Cliente implements Persistente {
                 '}';
     }
 
-    @Override
+    /*@Override
     public Long getCodigo() {
         return this.cpf;
-    }
+    }*/
 
 }

@@ -2,6 +2,6 @@ package cadastro.domain;
 
 public interface Persistente {
 
-    public Long getCodigo();
+    //public Long getCodigo();
 
 }
